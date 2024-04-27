@@ -168,3 +168,71 @@ def main():
 
 if __name__ red=eys(code:'veper°{™not%ju}syw\\\\
 account €}€gaminy '>not!atch
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Generate data
+x = np.linspace(-5, 5, 100)
+y = np.linspace(-5, 5, 100)
+x, y = np.meshgrid(x, y)
+z = np.sin(np.sqrt(x**2 + y**2))
+
+# Create 3D plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x, y, z)
+
+# Set labels and title
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
+ax.set_title('3D Surface Plot')
+
+# Show plot
+plt.show()import plotly.graph_objects as go
+import numpy as np
+
+# Generate data
+x = np.linspace(-5, 5, 100)
+y = np.linspace(-5, 5, 100)
+x, y = np.meshgrid(x, y)
+z = np.sin(np.sqrt(x**2 + y**2))
+
+# Create 3D surface plot
+fig = go.Figure(data=[go.Surface(z=z, x=x, y=y)])
+
+# Customize layout
+fig.update_layout(title='3D Surface Plot',
+                  scene=dict(
+                      xaxis_title='X-axis',
+                      yaxis_title='Y-axis',
+                      zaxis_title='Z-axis'
+                  ))
+
+# Show plot
+fig.show()import random
+
+def guessing_game():
+    number = random.randint(1, 100)
+    print("Welcome to the Guessing Game!")
+    print("I have selected a number between 1 and 100. Can you guess what it is?")
+
+    guess = None
+    attempts = 0
+
+    while guess != number:
+        try:
+            guess = int(input("Enter your guess: "))
+            attempts += 1
+
+            if guess < number:
+                print("Too low! Try again.")
+            elif guess > number:
+                print("Too high! Try again.")
+            else:
+                print(f"Congratulations! You guessed the number {number} in {attempts} attempts!")
+        except ValueError:
+            print("Please enter a valid number.")
+
+guessing_game()
